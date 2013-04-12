@@ -11014,7 +11014,6 @@ $.StringWrapper_sxw = new $.StringWrapper("===");
 $.PrecedenceInfo_IQT = new $.PrecedenceInfo($.StringWrapper_sxw, 9, 134);
 $.StringWrapper_f5R = new $.StringWrapper("<=");
 $.PrecedenceInfo_0DX = new $.PrecedenceInfo($.StringWrapper_f5R, 10, 129);
-$.JSArray_methods = $.JSArray.prototype;
 $.Keyword_0zn = new $.Keyword("case", false, false, $.PrecedenceInfo_StringWrapper_keyword_0_107);
 $.StringWrapper_izR = new $.StringWrapper("~");
 $.PrecedenceInfo_aE8 = new $.PrecedenceInfo($.StringWrapper_izR, 0, 126);
@@ -11090,6 +11089,7 @@ $.Keyword_hbN = new $.Keyword("catch", false, false, $.PrecedenceInfo_StringWrap
 $.PrecedenceInfo_StringWrapper_$_0_159 = new $.PrecedenceInfo($.StringWrapper_$, 0, 159);
 $.PrecedenceInfo_wC2 = new $.PrecedenceInfo($.StringWrapper_ato, 1, 148);
 $.EventStreamProvider_progress = new $.EventStreamProvider("progress");
+$.JSArray_methods = $.JSArray.prototype;
 $.EventStreamProvider_click = new $.EventStreamProvider("click");
 $.Keyword_uoT = new $.Keyword("this", false, false, $.PrecedenceInfo_StringWrapper_keyword_0_107);
 $.Keyword_yKN = new $.Keyword("for", false, false, $.PrecedenceInfo_StringWrapper_keyword_0_107);
