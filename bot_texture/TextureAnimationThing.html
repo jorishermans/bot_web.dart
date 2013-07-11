@@ -49,20 +49,11 @@ class TextureAnimationThing extends Thing {
 
  void update() {
 
-   var toRemove = new List&lt;TextureAnimationRequest&gt;();
-   for(final r in _requests) {
+   _requests.removeWhere((r) {
      r.update();
      assert(!r.fresh);
-     if(r.done) {
-       toRemove.add(r);
-     }
-   }
-
-   for(final r in toRemove) {
-     final i = _requests.indexOf(r, 0);
-     assert(i &gt;= 0);
-     _requests.removeRange(i, 1);
-   }
+     return r.done;
+   });
 
    if(_requests.length &gt; 0) {
      invalidateDraw();
@@ -297,8 +288,8 @@ void <strong>disposeInternal</strong>() <a class="anchor-link" href="#disposeInt
               title="Permalink to TextureAnimationThing.disposeInternal">#</a></h4>
 <div class="inherited-from">inherited from <a href="../bot_retained/Thing.html">Thing</a> </div><div class="doc">
 <div class="inherited">
-<p>Do not call this method directly. Call <code>dispose</code> instead.
-Subclasses should override this method to implement <code>Disposable</code> behavior.</p>
+<p>Do not call this method directly. Call <a class="crossref" href="../bot/DisposableImpl.html#dispose">dispose</a> instead.
+Subclasses should override this method to implement <a class="crossref" href="../bot/Disposable.html">Disposable</a> behavior.</p>
 <div class="docs-inherited-from">docs inherited from <a href="../bot/DisposableImpl.html">DisposableImpl</a> </div></div>
 <pre class="source">
 @protected
@@ -459,20 +450,11 @@ void <strong>update</strong>() <a class="anchor-link" href="#update"
 <pre class="source">
 void update() {
 
- var toRemove = new List&lt;TextureAnimationRequest&gt;();
- for(final r in _requests) {
+ _requests.removeWhere((r) {
    r.update();
    assert(!r.fresh);
-   if(r.done) {
-     toRemove.add(r);
-   }
- }
-
- for(final r in toRemove) {
-   final i = _requests.indexOf(r, 0);
-   assert(i &gt;= 0);
-   _requests.removeRange(i, 1);
- }
+   return r.done;
+ });
 
  if(_requests.length &gt; 0) {
    invalidateDraw();
@@ -489,7 +471,7 @@ void <strong>validateNotDisposed</strong>() <a class="anchor-link" href="#valida
 <pre class="source">
 void validateNotDisposed() {
  if(_disposed) {
-   throw const DisposedError();
+   throw new DisposedError();
  }
 }
 </pre>

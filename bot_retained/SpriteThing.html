@@ -67,10 +67,7 @@ class SpriteThing extends ImageThing {
  void _doDraw(CanvasRenderingContext2D ctx) {
    final int msPerFrame = 1000 ~/ count;
 
-   // DARTBUG: http://code.google.com/p/dart/issues/detail?id=7322
-   // performance.now is not correctly polyfilled for Chrome 23
-   // final new currentMS = window.performance.now().toInt();
-
+   // would rather use window.performance, but that is not available on Safari
    final int currentMS = new DateTime.now().millisecondsSinceEpoch;
 
    final int theFrame = (currentMS ~/ msPerFrame) % count;
@@ -334,8 +331,8 @@ void <strong>disposeInternal</strong>() <a class="anchor-link" href="#disposeInt
               title="Permalink to SpriteThing.disposeInternal">#</a></h4>
 <div class="inherited-from">inherited from <a href="../bot_retained/Thing.html">Thing</a> </div><div class="doc">
 <div class="inherited">
-<p>Do not call this method directly. Call <code>dispose</code> instead.
-Subclasses should override this method to implement <code>Disposable</code> behavior.</p>
+<p>Do not call this method directly. Call <a class="crossref" href="../bot/DisposableImpl.html#dispose">dispose</a> instead.
+Subclasses should override this method to implement <a class="crossref" href="../bot/Disposable.html">Disposable</a> behavior.</p>
 <div class="docs-inherited-from">docs inherited from <a href="../bot/DisposableImpl.html">DisposableImpl</a> </div></div>
 <pre class="source">
 @protected
@@ -542,7 +539,7 @@ void <strong>validateNotDisposed</strong>() <a class="anchor-link" href="#valida
 <pre class="source">
 void validateNotDisposed() {
  if(_disposed) {
-   throw const DisposedError();
+   throw new DisposedError();
  }
 }
 </pre>

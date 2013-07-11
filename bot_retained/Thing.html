@@ -214,10 +214,7 @@ abstract class Thing extends AttachableObject {
    // which signals that another frame is wanted for animating content
    // so we're setting _lastDrawTime here
 
-   // DARTBUG: http://code.google.com/p/dart/issues/detail?id=7322
-   // performance.now is not correctly polyfilled for Chrome 23
-   //_lastDrawTime = window.performance.now();
-
+   // would rather use window.performance, but that is not available on Safari
    _lastDrawTime = new DateTime.now().millisecondsSinceEpoch;
 
    // call the abstract draw method
@@ -237,7 +234,7 @@ abstract class Thing extends AttachableObject {
 <span class="type-box"><span class="icon-class"></span><a href="../bot/DisposableImpl.html">DisposableImpl</a></span>&nbsp;&gt;&nbsp;<span class="type-box"><span class="icon-class"></span><a href="../bot/AttachableObject.html">AttachableObject</a></span>&nbsp;&gt;&nbsp;<span class="type-box"><span class="icon-class"></span><strong>Thing</strong></span></p>
 <h3>Subclasses</h3>
 <p>
-<span class="type-box"><span class="icon-class"></span><a href="../bot_retained/ImageThing.html">ImageThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/ParentThing.html">ParentThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/ShapeThing.html">ShapeThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/SubCanvasThing.html">SubCanvasThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/TextThing.html">TextThing</a></span></p>
+<span class="type-box"><span class="icon-class"></span><a href="../bot_retained/ImageThing.html">ImageThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/ParentThing.html">ParentThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/ShapeThing.html">ShapeThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/SubCanvasThing.html">SubCanvasThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_retained/TextThing.html">TextThing</a></span>, <span class="type-box"><span class="icon-class"></span><a href="../bot_texture/TextureAnimationThing.html">TextureAnimationThing</a></span></p>
 <div>
 <h3>Constructors</h3>
 <div class="method"><h4 id="Thing">
@@ -432,8 +429,8 @@ void <strong>disposeInternal</strong>() <a class="anchor-link" href="#disposeInt
               title="Permalink to Thing.disposeInternal">#</a></h4>
 <div class="doc">
 <div class="inherited">
-<p>Do not call this method directly. Call <code>dispose</code> instead.
-Subclasses should override this method to implement <code>Disposable</code> behavior.</p>
+<p>Do not call this method directly. Call <a class="crossref" href="../bot/DisposableImpl.html#dispose">dispose</a> instead.
+Subclasses should override this method to implement <a class="crossref" href="../bot/Disposable.html">Disposable</a> behavior.</p>
 <div class="docs-inherited-from">docs inherited from <a href="../bot/DisposableImpl.html">DisposableImpl</a> </div></div>
 <pre class="source">
 @protected
@@ -590,7 +587,7 @@ void <strong>validateNotDisposed</strong>() <a class="anchor-link" href="#valida
 <pre class="source">
 void validateNotDisposed() {
  if(_disposed) {
-   throw const DisposedError();
+   throw new DisposedError();
  }
 }
 </pre>
