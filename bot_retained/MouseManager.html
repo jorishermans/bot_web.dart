@@ -140,7 +140,7 @@ class MouseManager {
  bool get _isDragging =&gt; _dragCoordinate != null;
 
  void _mouseMove(MouseEvent e) {
-   final items = _updateMouseLocation(getMouseEventCoordinate(e));
+   final items = _updateMouseLocation(e.offset);
 
    String cursor = null;
    if(_draggingThing != null) {
@@ -175,7 +175,7 @@ class MouseManager {
    //       Weird edge case, but important for comeletness :-/
    //       Mouse capture anyone?
 
-   final hits = _updateMouseLocation(getMouseEventCoordinate(e));
+   final hits = _updateMouseLocation(e.offset);
    final thing = hits.firstWhere((e) =&gt; getClickable(e), orElse: () =&gt; null);
 
    if(thing != null) {
@@ -193,7 +193,7 @@ class MouseManager {
    assert(_mouseDownThing == null);
    assert(_draggingThing == null);
 
-   final coord = getMouseEventCoordinate(e);
+   final coord = e.offset;
    final hits = _updateMouseLocation(coord);
 
    for(final t in hits) {
@@ -213,7 +213,7 @@ class MouseManager {
    cursorProperty.set(_stage, cursor);
  }
 
- List&lt;Thing&gt; _updateMouseLocation(Coordinate value) {
+ List&lt;Thing&gt; _updateMouseLocation(Point value) {
    return Mouse.markMouseOver(_stage, value);
  }
 

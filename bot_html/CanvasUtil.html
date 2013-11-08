@@ -37,7 +37,7 @@ class CanvasUtil {
  /**
   * (√2 - 1) * 4 / 3;
   */
- static final num kappa = 0.55228474983079339840225163227959743809289583383593;
+ static const double KAPPA = 0.55228474983079339840225163227959743809289583383593;
 
  static Size getCanvasSize(CanvasElement canvasElement) {
    return new Size(canvasElement.width, canvasElement.height);
@@ -124,8 +124,8 @@ class CanvasUtil {
 
  static void ellipse(CanvasRenderingContext2D ctx,
                      num x, num y, num width, num height) {
-   var hB = (width / 2) * kappa,
-     vB = (height / 2) * kappa,
+   var hB = (width / 2) * KAPPA,
+     vB = (height / 2) * KAPPA,
      eX = x + width,
      eY = y + height,
      mX = x + width / 2,
@@ -143,16 +143,16 @@ class CanvasUtil {
 </div>
 <div>
 <h3>Static Properties</h3>
-<div class="field"><h4 id="kappa">
+<div class="field"><h4 id="KAPPA">
 <button class="show-code">Code</button>
-final <a href="http://api.dartlang.org/dart_core/num.html">num</a>         <strong>kappa</strong> <a class="anchor-link"
-            href="#kappa"
-            title="Permalink to CanvasUtil.kappa">#</a>
+const <a href="http://api.dartlang.org/dart_core/double.html">double</a>         <strong>KAPPA</strong> <a class="anchor-link"
+            href="#KAPPA"
+            title="Permalink to CanvasUtil.KAPPA">#</a>
         </h4>
         <div class="doc">
 <p>(√2 - 1) * 4 / 3;</p>
 <pre class="source">
-static final num kappa = 0.55228474983079339840225163227959743809289583383593
+static const double KAPPA = 0.55228474983079339840225163227959743809289583383593
 </pre>
 </div>
 </div>
@@ -298,8 +298,8 @@ void <strong>ellipse</strong>(<a href="http://api.dartlang.org/dart_html/CanvasR
 <pre class="source">
 static void ellipse(CanvasRenderingContext2D ctx,
                    num x, num y, num width, num height) {
- var hB = (width / 2) * kappa,
-   vB = (height / 2) * kappa,
+ var hB = (width / 2) * KAPPA,
+   vB = (height / 2) * KAPPA,
    eX = x + width,
    eY = y + height,
    mX = x + width / 2,

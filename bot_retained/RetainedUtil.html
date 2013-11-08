@@ -79,11 +79,11 @@ class RetainedUtil {
    return new Vector(x, y);
  }
 
- static List&lt;Thing&gt; hitTest(Stage stage, Coordinate point){
+ static List&lt;Thing&gt; hitTest(Stage stage, Point point){
    return _hitTest(stage.rootThing, point);
  }
 
- static List&lt;Thing&gt; _hitTest(Thing thing, Coordinate point){
+ static List&lt;Thing&gt; _hitTest(Thing thing, Point point){
    point = transformPointGlobalToLocal(thing, point);
 
    final bounds = new Box(0, 0, thing.width, thing.height);
@@ -113,8 +113,7 @@ class RetainedUtil {
    return tx.transformCoordinate(point);
  }
 
- static Coordinate transformPointGlobalToLocal(Thing thing,
-                                                    Coordinate point) {
+ static Coordinate transformPointGlobalToLocal(Thing thing, Point point) {
    var tx = thing.getTransform();
    return tx.createInverse().transformCoordinate(point);
  }
@@ -185,11 +184,11 @@ static Vector getOffsetVector(Size parentSize, Size childSize,
 </div>
 <div class="method"><h4 id="hitTest">
 <button class="show-code">Code</button>
-<a href="http://api.dartlang.org/dart_core/List.html">List</a>&lt;<a href="../bot_retained/Thing.html">Thing</a>&gt; <strong>hitTest</strong>(<a href="../bot_retained/Stage.html">Stage</a> stage, <a href="../bot/Coordinate.html">Coordinate</a> point) <a class="anchor-link" href="#hitTest"
+<a href="http://api.dartlang.org/dart_core/List.html">List</a>&lt;<a href="../bot_retained/Thing.html">Thing</a>&gt; <strong>hitTest</strong>(<a href="../bot_retained/Stage.html">Stage</a> stage, <a href="http://api.dartlang.org/dart_math/Point.html">Point</a> point) <a class="anchor-link" href="#hitTest"
               title="Permalink to RetainedUtil.hitTest">#</a></h4>
 <div class="doc">
 <pre class="source">
-static List&lt;Thing&gt; hitTest(Stage stage, Coordinate point){
+static List&lt;Thing&gt; hitTest(Stage stage, Point point){
  return _hitTest(stage.rootThing, point);
 }
 </pre>
@@ -211,12 +210,11 @@ static Coordinate transformPointLocalToGlobal(Thing thing,
 </div>
 <div class="method"><h4 id="transformPointGlobalToLocal">
 <button class="show-code">Code</button>
-<a href="../bot/Coordinate.html">Coordinate</a> <strong>transformPointGlobalToLocal</strong>(<a href="../bot_retained/Thing.html">Thing</a> thing, <a href="../bot/Coordinate.html">Coordinate</a> point) <a class="anchor-link" href="#transformPointGlobalToLocal"
+<a href="../bot/Coordinate.html">Coordinate</a> <strong>transformPointGlobalToLocal</strong>(<a href="../bot_retained/Thing.html">Thing</a> thing, <a href="http://api.dartlang.org/dart_math/Point.html">Point</a> point) <a class="anchor-link" href="#transformPointGlobalToLocal"
               title="Permalink to RetainedUtil.transformPointGlobalToLocal">#</a></h4>
 <div class="doc">
 <pre class="source">
-static Coordinate transformPointGlobalToLocal(Thing thing,
-                                                  Coordinate point) {
+static Coordinate transformPointGlobalToLocal(Thing thing, Point point) {
  var tx = thing.getTransform();
  return tx.createInverse().transformCoordinate(point);
 }

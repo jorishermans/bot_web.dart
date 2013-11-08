@@ -46,10 +46,10 @@ class Mouse {
  static bool isMouseDirectlyOver(Thing thing) =&gt;
      isMouseDirectlyOverProperty.get(thing);
 
- static List&lt;Thing&gt; markMouseOver(Stage stage,
-     [Coordinate coordinate = null]) {
+ static List&lt;Thing&gt; markMouseOver(Stage stage, [Point coordinate = null]) {
    requireArgumentNotNull(stage, 'stage');
-   requireArgument(coordinate == null || coordinate.isValid, 'coordinate');
+   requireArgument(coordinate == null ||
+       Coordinate.valid(coordinate), 'coordinate');
 
    final items = _stageMouseCacheProperty.get(stage);
    if (items != null) {
@@ -129,14 +129,14 @@ static bool isMouseDirectlyOver(Thing thing) =&gt;
 </div>
 <div class="method"><h4 id="markMouseOver">
 <button class="show-code">Code</button>
-<a href="http://api.dartlang.org/dart_core/List.html">List</a>&lt;<a href="../bot_retained/Thing.html">Thing</a>&gt; <strong>markMouseOver</strong>(<a href="../bot_retained/Stage.html">Stage</a> stage, [<a href="../bot/Coordinate.html">Coordinate</a> coordinate = null]) <a class="anchor-link" href="#markMouseOver"
+<a href="http://api.dartlang.org/dart_core/List.html">List</a>&lt;<a href="../bot_retained/Thing.html">Thing</a>&gt; <strong>markMouseOver</strong>(<a href="../bot_retained/Stage.html">Stage</a> stage, [<a href="http://api.dartlang.org/dart_math/Point.html">Point</a> coordinate = null]) <a class="anchor-link" href="#markMouseOver"
               title="Permalink to Mouse.markMouseOver">#</a></h4>
 <div class="doc">
 <pre class="source">
-static List&lt;Thing&gt; markMouseOver(Stage stage,
-   [Coordinate coordinate = null]) {
+static List&lt;Thing&gt; markMouseOver(Stage stage, [Point coordinate = null]) {
  requireArgumentNotNull(stage, 'stage');
- requireArgument(coordinate == null || coordinate.isValid, 'coordinate');
+ requireArgument(coordinate == null ||
+     Coordinate.valid(coordinate), 'coordinate');
 
  final items = _stageMouseCacheProperty.get(stage);
  if (items != null) {

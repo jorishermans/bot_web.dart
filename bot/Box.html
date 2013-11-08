@@ -369,23 +369,6 @@ Coordinate constrain(Coordinate value) {
 </pre>
 </div>
 </div>
-<div class="method inherited"><h4 id="contains">
-<button class="show-code">Code</button>
-<a href="http://api.dartlang.org/dart_core/bool.html">bool</a> <strong>contains</strong>(<a href="http://api.dartlang.org/dart_math/Rectangle.html">Rectangle</a>&lt;<a href="http://api.dartlang.org/dart_core/num.html">num</a>&gt; another) <a class="anchor-link" href="#contains"
-              title="Permalink to Box&lt;T&gt;.contains">#</a></h4>
-<div class="inherited-from">inherited from <a href="http://api.dartlang.org/dart_math/_RectangleBase.html">_RectangleBase</a> </div><div class="doc">
-<p>Tests whether <code>this</code> entirely contains 
-<span class="param">another</span>.</p>
-<pre class="source">
-bool contains(Rectangle&lt;num&gt; another) {
- return left &lt;= another.left &amp;&amp;
-        left + width &gt;= another.left + another.width &amp;&amp;
-        top &lt;= another.top &amp;&amp;
-        top + height &gt;= another.top + another.height;
-}
-</pre>
-</div>
-</div>
 <div class="method inherited"><h4 id="containsPoint">
 <button class="show-code">Code</button>
 <a href="http://api.dartlang.org/dart_core/bool.html">bool</a> <strong>containsPoint</strong>(<a href="http://api.dartlang.org/dart_math/Point.html">Point</a>&lt;<a href="http://api.dartlang.org/dart_core/num.html">num</a>&gt; another) <a class="anchor-link" href="#containsPoint"
@@ -399,6 +382,23 @@ bool containsPoint(Point&lt;num&gt; another) {
         another.x &lt;= left + width &amp;&amp;
         another.y &gt;= top &amp;&amp;
         another.y &lt;= top + height;
+}
+</pre>
+</div>
+</div>
+<div class="method inherited"><h4 id="containsRectangle">
+<button class="show-code">Code</button>
+<a href="http://api.dartlang.org/dart_core/bool.html">bool</a> <strong>containsRectangle</strong>(<a href="http://api.dartlang.org/dart_math/Rectangle.html">Rectangle</a>&lt;<a href="http://api.dartlang.org/dart_core/num.html">num</a>&gt; another) <a class="anchor-link" href="#containsRectangle"
+              title="Permalink to Box&lt;T&gt;.containsRectangle">#</a></h4>
+<div class="inherited-from">inherited from <a href="http://api.dartlang.org/dart_math/_RectangleBase.html">_RectangleBase</a> </div><div class="doc">
+<p>Tests whether <code>this</code> entirely contains 
+<span class="param">another</span>.</p>
+<pre class="source">
+bool containsRectangle(Rectangle&lt;num&gt; another) {
+ return left &lt;= another.left &amp;&amp;
+        left + width &gt;= another.left + another.width &amp;&amp;
+        top &lt;= another.top &amp;&amp;
+        top + height &gt;= another.top + another.height;
 }
 </pre>
 </div>
